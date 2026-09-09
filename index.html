@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Lava AutoCar</title>
+
+<style>
+
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#8B0000,#ff0000);
+    font-family:Arial,sans-serif;
+}
+
+.login-box{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:320px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#8B0000;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:red;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+button:hover{
+    background:darkred;
+}
+
+.cadastro-btn{
+    background:#8B0000;
+}
+
+.cadastro-btn:hover{
+    background:#600000;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>Lava AutoCar</h2>
+
+    <input 
+        type="text" 
+        id="usuario" 
+        placeholder="Usuário"
+    >
+
+    <input 
+        type="password" 
+        id="senha" 
+        placeholder="Senha"
+    >
+
+    <button onclick="login()">
+        Entrar
+    </button>
+
+    <button 
+        class="cadastro-btn" 
+        onclick="window.location.href='cadastro.html'"
+    >
+        Criar Cadastro
+    </button>
+
+</div>
+
+<script>
+
+function login(){
+
+    let usuario = document.getElementById("usuario").value;
+    let senha = document.getElementById("senha").value;
+
+    // Pega o cadastro salvo no navegador
+    let cadastroSalvo = localStorage.getItem("usuarioLavaAuto");
+
+    // Verifica se existe algum cadastro
+    if(cadastroSalvo){
+
+        let dados = JSON.parse(cadastroSalvo);
+
+        if(usuario === dados.usuario && senha === dados.senha){
+
+            alert("Login realizado com sucesso!");
+
+            window.location.href = "dashboard.html";
+
+        }else{
+
+            alert("Usuário ou senha incorretos!");
+
+        }
+
+    }else{
+
+        // Login padrão
+        if(usuario === "murilo" && senha === "1234"){
+
+            window.location.href = "dashboard.html";
+
+        }else{
+
+            alert("Usuário ou senha incorretos!");
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

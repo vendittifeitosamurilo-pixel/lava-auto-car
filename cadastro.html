@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cadastro - Lava AutoCar</title>
+
+<style>
+
+body{
+    margin:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #600000,
+        #ff0000,
+        #8B0000
+    );
+
+    font-family:Arial,sans-serif;
+}
+
+.cadastro-box{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    width:350px;
+
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+
+}
+
+h2{
+
+    text-align:center;
+
+    color:#8B0000;
+
+    margin-bottom:25px;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    box-sizing:border-box;
+
+    outline:none;
+
+}
+
+input:focus{
+
+    border:1px solid red;
+
+    box-shadow:0 0 5px rgba(255,0,0,0.3);
+
+}
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#ff0000;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin-bottom:10px;
+
+}
+
+button:hover{
+
+    background:#8B0000;
+
+}
+
+.voltar{
+
+    background:#555;
+
+}
+
+.voltar:hover{
+
+    background:#333;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cadastro-box">
+
+    <h2>Criar Cadastro</h2>
+
+    <input
+        type="text"
+        id="nome"
+        placeholder="Nome completo"
+    >
+
+    <input
+        type="text"
+        id="novoUsuario"
+        placeholder="Nome de usuário"
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="E-mail"
+    >
+
+    <input
+        type="password"
+        id="novaSenha"
+        placeholder="Senha"
+    >
+
+    <input
+        type="password"
+        id="confirmarSenha"
+        placeholder="Confirmar senha"
+    >
+
+    <button onclick="cadastrar()">
+        Cadastrar
+    </button>
+
+    <button class="voltar" onclick="voltar()">
+        Voltar ao Login
+    </button>
+
+</div>
+
+<script>
+
+function cadastrar(){
+
+    let nome = document.getElementById("nome").value;
+
+    let usuario = document.getElementById("novoUsuario").value;
+
+    let email = document.getElementById("email").value;
+
+    let senha = document.getElementById("novaSenha").value;
+
+    let confirmar = document.getElementById("confirmarSenha").value;
+
+
+    // Verifica se todos os campos foram preenchidos
+
+    if(
+        nome === "" ||
+        usuario === "" ||
+        email === "" ||
+        senha === "" ||
+        confirmar === ""
+    ){
+
+        alert("Preencha todos os campos!");
+
+        return;
+
+    }
+
+
+    // Verifica se as senhas são iguais
+
+    if(senha !== confirmar){
+
+        alert("As senhas não são iguais!");
+
+        return;
+
+    }
+
+
+    // Cria o objeto com os dados
+
+    let dadosCadastro = {
+
+        nome: nome,
+
+        usuario: usuario,
+
+        email: email,
+
+        senha: senha
+
+    };
+
+
+    // Salva o cadastro no navegador
+
+    localStorage.setItem(
+        "usuarioLavaAuto",
+        JSON.stringify(dadosCadastro)
+    );
+
+
+    alert("Cadastro realizado com sucesso!");
+
+
+    // Volta para o login
+
+    window.location.href = "index.html";
+
+}
+
+
+function voltar(){
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>

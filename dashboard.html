@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vende Lava AutoCar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    overflow-x:hidden;
+}
+
+header{
+    background:linear-gradient(90deg,#8B0000,#ff0000);
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 20px red;
+    animation: brilho 2s infinite alternate;
+}
+
+@keyframes brilho{
+    from{box-shadow:0 0 10px red;}
+    to{box-shadow:0 0 35px red;}
+}
+
+header h1{
+    font-size:40px;
+}
+
+.banner{
+    height:500px;
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.banner h2{
+    font-size:50px;
+    color:#ff3333;
+    animation: subir 1.5s ease;
+}
+
+.banner p{
+    margin-top:15px;
+    font-size:20px;
+}
+
+@keyframes subir{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:50px;
+}
+
+.card{
+    width:280px;
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+    border:2px solid red;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 25px red;
+}
+
+.card h3{
+    color:#ff4444;
+    margin-bottom:15px;
+}
+
+.botao{
+    display:inline-block;
+    margin-top:15px;
+    background:red;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:#ff3333;
+    box-shadow:0 0 20px red;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#0d0d0d;
+    margin-top:40px;
+}
+
+.estatisticas{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:#1c1c1c;
+    border:2px solid red;
+    padding:20px;
+    border-radius:15px;
+    width:220px;
+    text-align:center;
+}
+
+.stat h2{
+    color:#ff3333;
+    font-size:40px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:-100%;
+    left:-100%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,0,0,0.2),
+        transparent
+    );
+    transform:rotate(45deg);
+    transition:0.7s;
+}
+
+.card:hover::before{
+    top:100%;
+    left:100%;
+}
+
+.beneficios{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding:50px;
+}
+
+.beneficio{
+    width:300px;
+    background:#1c1c1c;
+    border:2px solid red;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.beneficio h3{
+    color:#ff4444;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Vende Lava AutoCar</h1>
+</header>
+
+<section class="estatisticas">
+
+    <div class="stat">
+        <h2>500+</h2>
+        <p>Carros Lavados</p>
+    </div>
+
+    <div class="stat">
+        <h2>98%</h2>
+        <p>Clientes Satisfeitos</p>
+    </div>
+
+    <div class="stat">
+        <h2>5★</h2>
+        <p>Avaliação Média</p>
+    </div>
+
+</section>
+
+<section class="banner">
+    <h2>Seu carro brilhando como novo!</h2>
+    <p>Lavagem completa, polimento e higienização profissional.</p>
+</section>
+
+<section class="cards">
+
+<div class="card">
+    <h3>Lavagem Simples</h3>
+    <p>Limpeza externa completa do veículo.</p>
+    <a href="comprar.html?servico=simples" class="botao">Contratar</a>
+    </div>
+
+        <div class="card">
+        <h3>Lavagem Premium</h3>
+        <p>Lavagem + cera + acabamento especial.</p>
+        <a href="comprar.html?servico=premium" class="botao">Contratar</a>
+        </div>
+
+    <div class="card">
+    <h3>Lavagem Completa</h3>
+    <p>Limpeza profunda interna e externa + cera + aspiramento + acabamento especial.</p>
+    <a href="comprar.html?servico=completa" class="botao">Contratar</a>
+    </div>
+
+</section>
+
+<section class="beneficios">
+
+    <div class="beneficio">
+        <h3>⚡ Atendimento Rápido</h3>
+        <p>Seu veículo pronto em poucas horas.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>🧼 Produtos Premium</h3>
+        <p>Utilizamos produtos de alta qualidade.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>🚗 Profissionais Experientes</h3>
+        <p>Equipe especializada em estética automotiva.</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Vende Lava AutoCar - Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
